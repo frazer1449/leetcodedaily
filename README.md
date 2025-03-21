@@ -1,6 +1,6 @@
 # 🏆 LeetCode Daily Progress  
 
-This repository is for tracking my daily progress on LeetCode problems. My goal is to improve my problem-solving skills and prepare for coding interviews.  
+This repository is for tracking my daily progress on LeetCode problems.
 
 ---
 
