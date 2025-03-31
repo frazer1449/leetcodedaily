@@ -20,8 +20,8 @@ class Solution:
         #     return 1 + max(left, right)
 
         # Now, as we traverse through the array, we need to update res.
-        # dfs still returns the HEIGHT of the current node = happens to equal left maxHeight
-        # but, during each iteration, it updates res.
+        # dfs returns the HEIGHT of the current node
+        # in the same time, during each iteration, it updates res.
         def dfs(root):
             nonlocal res
             
@@ -35,6 +35,37 @@ class Solution:
         
         dfs(root)
         return res
-        
+
+# MAKE SURE YOU UNDERSTAND THE DIFFERENCE
+# Depth of a node = distance from root to that node.
+# Height of a node = distance from that node to its deepest leaf.
+
+# Code for Depth:
+# BFS is used to find depth!
+
+from collections import deque
+
+# stores the depth of each node in tree.
+depthMap = {}
+def bfs(root):
+    if not root:
+        return
+    
+    depth = 0
+    q = deque([root])
+    while q:
+        for _ in range(len(q)):
+            node = q.popleft()
+            depthMap[node] = depth
+            
+            if node.left:
+                q.append(node.left)
+            if node.right:
+                q.append(node.right)
+        depth += 1
+    
+    
+
+
         
     
