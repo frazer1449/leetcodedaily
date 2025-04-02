@@ -1,5 +1,11 @@
 # Topic: Tree, Level: Easy
 # Definition for a binary tree node.
+# Depth vs. Height
+# Depth of a Node: distance from root to node
+# Height of a Node: distance from node to farthest leaf
+# Height of a Tree: distance from root to farthest leaf
+# Default => counted in edges, but can differ based on interview
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
