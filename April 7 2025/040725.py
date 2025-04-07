@@ -6,6 +6,9 @@
 
 # Hint: Two Solutions. One uses O(n) memory and the other uses O(1) memory. 
 
+# XOR operator: 0 ^ 0 = 0, 1 ^ 1 = 0, 0 ^ 1 = 1
+# same => 0, diff => 1
+
 from typing import List
 
 class Solution:
