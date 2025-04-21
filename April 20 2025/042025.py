@@ -2,6 +2,8 @@
 # Subsets
 # Given an array nums of unique integers, return all possible subsets of nums.
 
+from typing import List
+
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
         res = []
