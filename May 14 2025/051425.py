@@ -10,6 +10,8 @@
 # The reason why this works is that the queue initially collects all coordinates that have distance 0 to the box.
 #  Then the queue collects all coordinates distance 1 to the box... and so on, which makes sure the number written on the coordinates is minimal.
 
+# This is called multi-source BFS.
+
 from collections import deque
 from typing import List
 
