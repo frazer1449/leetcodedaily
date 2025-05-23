@@ -8,6 +8,7 @@ from typing import List
 # 2. puts minHeap[-1] into the top of array 
 # 3. shifts down so that heap property is satisfied
 
+
 class Solution:
     def lastStoneWeight(self, stones: List[int]) -> int:
         stones = [-stone for stone in stones]
