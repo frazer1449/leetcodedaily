@@ -1,6 +1,9 @@
 import heapq
 from typing import List
 
+# K Closest Points to Origin
+# Lesson: heapify() function sorts list of lists lexicographically (starting with first elem)
+
 class Solution:
     def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
         minHeap = []
