@@ -28,9 +28,20 @@ class Solution:
             else:
                 r+=1
         return l+1
+    def removeDuplicatesTwo(nums: List[int]) -> int:
+        n = len(nums)
+        l = r = 0
+        while r < n:
+            nums[l] = nums[r]
+            while r < n and nums[r] == nums[l]:
+                r += 1
+            l += 1
+        return l
     
 
 print(Solution.removeDuplicates([1, 2, 3, 3, 3, 4, 4, 4, 5, 6, 6, 7, 7, 8]))
+
+
          
 
             
