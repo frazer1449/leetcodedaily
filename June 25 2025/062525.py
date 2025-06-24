@@ -3,6 +3,9 @@
 
 from typing import List
 
+# Time Complexity: O(n * m)
+# n = len(s)
+# m = len(wordDict)
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
         # Solution: O(n * m) where n = len(s), m = len(wordDict)
