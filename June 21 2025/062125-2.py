@@ -22,26 +22,21 @@ class Interval(object):
 
 class Solution:
     def canAttendMeetings(intervals: List[Interval]) -> bool:
-        # Sort First O(nlogn)
-        # Greedy Algorithm: In comparing two adjacent ones that overlap, keep the one that ends first
-        
-        # Sort based on starting point
-        # intervals = sorted(intervals, key=lambda x: x[0])
-        intervals.sort()
+        intervals = sorted(intervals, key=lambda x: x.start)
+        n = len(intervals)
+        for i in range(n-1):
+            if intervals[i].end > intervals[i+1].start:
+                return False
+        return True
 
-        res = 0
-        prevEnd = intervals[0][1]
-        for start, end in intervals[1:]:
-            # non-overlapping
-            if start >= prevEnd:
-                prevEnd = end
-            else:
-                res += 1
-                prevEnd = min(prevEnd, end)
-        return res
+def createInterval(list: List[tuple]) -> List[Interval]:
+    intervals = []
+    for interval in list:
+        intervals.append(Interval(interval[0], interval[1]))
+    return intervals
 
-print(Solution.canAttendMeetings([(0,30),(5,10),(15,20)]))
-print(Solution.canAttendMeetings([(5,8),(9,15)]))
+print(Solution.canAttendMeetings(createInterval([(0,30),(5,10),(15,20)])))
+print(Solution.canAttendMeetings(createInterval([(5,8),(9,15)])))
 
 
 

@@ -19,42 +19,23 @@ from typing import List
 
 class Solution:
     def eraseOverlapIntervals(intervals: List[List[int]]) -> int:
-        n = len(intervals)
-        # i : degree ((i+1)th interval & its degree) / note: i ranges from 0 ~ n-1
-        edges = {i:[] for i in range(n)}
-        degrees = {i:0 for i in range(n)}
-
-        for i in range(n):
-            for j in range(i+1, n):
-                if intervals[i][0] > intervals[j][1] or intervals[i][1] > intervals[j][0]:
-                    edges[i].append(j)
-                    edges[j].append(i)
-                    degrees[i]+=1
-                    degrees[j]+=1
-        print(edges)
+        # Sort First O(nlogn)
+        # Greedy Algorithm: In comparing two adjacent ones that overlap, keep the one that ends first O(n)
         
-        count = 0
-        while True:
-            i = findMaximumIdx(list(degrees.values()))
-            if i == -1:
-                break
-            for v in edges[i]:
-                edges[v].remove(i)
-                degrees[v] -= 1
-            edges[i] = []
-            degrees[i] = 0
-            count += 1
-        
-        return count
+        # Sort based on starting point
+        # intervals = sorted(intervals, key=lambda x: x[0])
+        intervals.sort()
 
-def findMaximumIdx(list) -> int:
-    idx = -1
-    mx = 0
-    for i in range(len(list)):
-        if list[i] > mx:
-            mx = list[i]
-            idx = i
-    return idx
+        res = 0
+        prevEnd = intervals[0][1]
+        for start, end in intervals[1:]:
+            # non-overlapping
+            if start >= prevEnd:
+                prevEnd = end
+            else:
+                res += 1
+                prevEnd = min(prevEnd, end)
+        return res
 
 print(Solution.eraseOverlapIntervals(intervals = [[1,2],[2,4],[1,4]]))
 print(Solution.eraseOverlapIntervals(intervals = [[1,2],[2,4]]))
